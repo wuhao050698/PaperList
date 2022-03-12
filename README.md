@@ -7,4 +7,4 @@
 |AAAI2023 | 2022/09(TBD)|
 
 ## Paperlist
-###[Image/Video super resolution(VSR)](Video%20super%20resolution/paper.md)
+###[Image/Video super resolution(VSR)](VSR/paper.md)
