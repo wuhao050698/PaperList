@@ -17,7 +17,7 @@
 - Data-Free Knowledge Distillation For Image Super-Resolution,CVPR 2021.
 - Unsupervised Real-World Super-Resolution: A Domain Adaptation Perspective, CVPR 2021.
 - Investigating Tradeoffs in Real-World Video Super-Resolution,CVPR 2022.
-**(NEW↑)**
+- **(NEW↑)**
 - BasicVSR++: Improving Video Super-Resolution with Enhanced Propagation and Alignment，CVPR 2022.
 - BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond, CVPR 2021.
 - VRT: A Video Restoration Transformer, CVPR 2022.
@@ -29,14 +29,14 @@
 #### Action Recognition/Detection
 - Is Space-Time Attention All You Need for Video Understanding?,ICML,2021
 - Long-term feature banks for detailed video understanding,CVPR,2019
-**(NEW↑)**
+- **(NEW↑)**
 - TSM: Temporal Shift Module for Efficient Video Understanding, ICCV 2019.
 #### video reid
 - BiCnet-TKS: Learning Efficient Spatial-Temporal Representation for Video Person Re-Identification,CVPR,2021
-**(NEW↑)**
+- **(NEW↑)**
 ### [Knowledge transfer](KT/paper.md)
 - Semi-Supervised Semantic Segmentation With Cross Pseudo Supervision,CVPR,2021.
-**(NEW↑)**
+- **(NEW↑)**
 - Source-Free Domain Adaptation for Semantic Segmentation,CVPR,2021.
 - Learning Student Networks in the Wild,CVPR,2021.
 
