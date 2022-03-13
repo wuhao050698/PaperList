@@ -2,18 +2,48 @@
 
 paper|year|conference|keyword|link
 -|-|-|-|-
-Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation|2018|CVPR|Dynamic filter network, No optical flow
-TDAN: Temporally Deformable Alignment Network for Video Super-Resolution|2018|CVPR|DCN(V1)
-|Investigating Tradeoffs in Real-World Video Super-Resolution|2022|CVPR|Based on BasicVSR++|[paper](https://arxiv.org/pdf/2111.12704.pdf)  [code](https://github.com/ckkelvinchan/RealBasicVSR)|
 [Data-Free Knowledge Distillation For Image Super-Resolution](#data-free-knowledge-distillation-for-image-super-resolution)|2021|CVPR|data-free model compression,ISR|[paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Zhang_Data-Free_Knowledge_Distillation_for_Image_Super-Resolution_CVPR_2021_paper.pdf)  [code](https://github.com/twtygqyy/pytorch-vdsr)
 [Unsupervised Real-World Super-Resolution: A Domain Adaptation Perspective](#unsupervised-real-world-super-resolution-a-domain-adaptation-perspective)|2021|ICCV|unsupervised domain adaptation,degradation-indistinguishable feature,ISR|[paper](https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_Unsupervised_Real-World_Super-Resolution_A_Domain_Adaptation_Perspective_ICCV_2021_paper.pdf)  [code](https://github.com/anse3832/USR_DA)
+[Investigating Tradeoffs in Real-World Video Super-Resolution](#investigating-tradeoffs-in-real-world-video-super-resolution)|2022|CVPR|real-world SR,pre-cleaning|[paper](https://arxiv.org/pdf/2111.12704.pdf)  [code](https://github.com/ckkelvinchan/RealBasicVSR)
+|BasicVSR++: Improving Video Super-Resolution with Enhanced Propagation and Alignment|2022|CVPR||[paper](https://arxiv.org/pdf/2104.13371.pdf)|
+BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond|2021|CVPR|VSR,Bi-RNN,optical flow|[paper](https://arxiv.org/abs/2012.02181)
+Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling|2021|AAAI|Large Motion|[paper](https://arxiv.org/pdf/2103.11744.pdf)
+Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation|2018|CVPR|Dynamic filter network, No optical flow
+TDAN: Temporally Deformable Alignment Network for Video Super-Resolution|2018|CVPR|DCN(V1)
+
+****
+## Investigating Tradeoffs in Real-World Video Super-Resolution
+### Main idea
+**Background:** The degradations in real-world.
+1. long-term propagation severe in-the-wild degradations could be exaggerated through propagation. Get bad performance.
+2. real-world VSR models with diverse degradations will have speed-performance tradeoff and batch-length tradeoff.
+
+### Methods: RealBasicVSR
+1.  **Cleaning module**: A pre-cleaning module with stack of residual blocks is used prior to BasicVSR. "clean" data will let the degradations have less effect on the model. 
+2.  **Stochastic degradation scheme**: load L/2 frames and flip the sequence temporally
+<img src="image/5.jpg" width="50%" />
+3.  New dataset with real-world videos.
+
+**Experiment result:** Best in real-world dataset. 
+
+### Highlight
+1. Focus on the degradations in the VSR. Traditional degradation has many problems.
+2. Pre-clean module for degradation.
+
+### Problem
+1. The new dataset are captured by a single camera. So it will have camera-specific degradations. It is not a general dataset for real-world.
+
+### idea
+1. degradation scheme is an important things for the VSR model.
+2. Pre-clean the video.
+
 
 ****
 ## Unsupervised Real-World Super-Resolution: A Domain Adaptation Perspective
 ### Main idea
 **Background**: Most methods in SR try to generate the low-resolution(LR) data from the high-resolution (HR) dataset to train their model. But the **degradation in the real world** is hard to predict. So they try to find the  **degradation-indistinguishable feature**.
 
-**Method**: They use the unsupervised domain adaptation to avoid this problem. The dataset they used is the **unpaired real LR and real HR**, but no degradation prior. They decompose this task into **degradation-indistinguishable feature and degradation style**
+**Method**: They use the **unsupervised domain adaptation** to avoid this problem. The dataset they used is the **unpaired real LR and real HR**, but no degradation prior. They decompose this task into **degradation-indistinguishable feature and degradation style**
 1. **Feature Distribution Alignment** (figure a)
      - **learn degradation-indistinguishable feature**: they align the feature distribution of source and target LR data.
        - Encoder $E$: generate source and target feature($f_t$,$f_s$) map to fool the discriminator.
@@ -27,6 +57,7 @@ TDAN: Temporally Deformable Alignment Network for Video Super-Resolution|2018|CV
    -  Reuse the $G_{SR}$ to generate the HR image of source data in target degradation style $y_{s\rightarrow t \rightarrow s}$. And then use $y_{s\rightarrow s}$ and $y_{s\rightarrow t \rightarrow s}$ to **train the HR reconstruction model in target degradation style** (right figure)
 
 **Experiment result**: SOTA in blind/unsupervised methods on unpaired dataset. LPIPS performance is better than bicubic downsampling and Mixed degradation methods.
+
 <img src="image/3.jpg" width="50%" /><img src="image/4.jpg" width="50%" />
 
 ### Highlight
@@ -53,6 +84,7 @@ TDAN: Temporally Deformable Alignment Network for Video Super-Resolution|2018|CV
 ### Problem
 1. the improvement of the progressive distillation is not significant. and they only do the ablation experiment in one dataset.
 2. They did not compare the training time and parameters to show the compression.
+
 <img src="image/2.jpg" width="50%" />
 
 ### Idea
