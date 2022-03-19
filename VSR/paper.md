@@ -10,21 +10,15 @@ paper|year|conference|keyword|link
 [Investigating Tradeoffs in Real-World Video Super-Resolution](#investigating-tradeoffs-in-real-world-video-super-resolution)|2022|CVPR|real-world SR,pre-cleaning|[paper](https://arxiv.org/pdf/2111.12704.pdf)  [code](https://github.com/ckkelvinchan/RealBasicVSR)
 Zero-Shot Image Super-Resolution with Depth Guided Internal Degradation Learning|2020|ECCV||[paper](https://scholar.google.com.hk/scholar_url?url=http://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620256.pdf&hl=zh-CN&sa=X&ei=4gcvYueuOZLeyQTCm7PYCw&scisig=AAGBfm0x3gK1WIx2oAFhqUapa-xjjF4VQw&oi=scholarr)
 |BasicVSR++: Improving Video Super-Resolution with Enhanced Propagation and Alignment|2021|NTIRE||[paper](https://arxiv.org/pdf/2104.13371.pdf)|
-[VRT: A Video Restoration Transformer](#vrt-a-video-restoration-transformer)|2022|Arxiv|Multi-head mutual attention|[paper](https://arxiv.org/abs/2201.12288)
+[VRT: A Video Restoration Transformer](#vrt-a-video-restoration-transformer)|2022|Arxiv|Temporal mutual self attention|[paper](https://arxiv.org/abs/2201.12288)
 BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond|2021|CVPR|VSR,Bi-RNN,optical flow|[paper](https://arxiv.org/abs/2012.02181)
 Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling|2021|AAAI|Large Motion|[paper](https://arxiv.org/pdf/2103.11744.pdf)
-Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation|2018|CVPR|Dynamic filter network, No optical flow
-TDAN: Temporally Deformable Alignment Network for Video Super-Resolution|2018|CVPR|DCN(V1)
-
-****
-<div id='VRT'></div>
-
-## VRT: A Video Restoration Transformer
+[Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation](#deep-video-super-resolution-network-using-dynamic-upsampling-filters-without-explicit-motion-compensation)|2018|CVPR|Dynamic filter network, No optical flow
+[TDAN: Temporally Deformable Alignment Network for Video Super-Resolution](#tdan-temporally-deformable-alignment-network-for-video-super-resolution)|2018|CVPR|DCN(V1)|[paper](https://arxiv.org/abs/1812.02898)
+[EDVR: Video Restoration With Enhanced Deformable Convolutional Networks](#edvr-video-restoration-with-enhanced-deformable-convolutional-networks)|2019|CVPR|optical flow, DCN(V2)|[paper](https://arxiv.org/abs/1905.02716)
 
 
-
-### Main idea
-
+   
 ****
 ## Zero-Shot Image Super-Resolution with Depth Guided Internal Degradation Learning
 ### Main idea
@@ -115,3 +109,63 @@ TDAN: Temporally Deformable Alignment Network for Video Super-Resolution|2018|CV
 
 ### Idea
 1. In Data-Free Knowledge Distillation about VSR, we can also use the similar idea like the reconstruction loss in this paper. The inputs and outputs should be in similar distribution in the teacher model. But how to deal with the heavy model in VSR is a problem.
+
+****
+<div id='duf'></div>
+
+## Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation
+### Main idea
+1. Dynamic filter network -> Dynamic Upsampling Filters(DUF)   
+2. Residual Learning increase high frequency details temporal Augmentation
+
+### Highlight
+Temporal Augmentation: Set the interval to extract adjacent frames to simulate high-speed motion
+
+### Problem
+1. 3D model too big
+2. no temporal alignment
+
+****
+<div id='edvr'></div>
+
+## EDVR: Video Restoration With Enhanced Deformable Convolutional Networks
+### Main idea
+1. Pyramid, Cascading and Deformable Convolution(PCD) based on DCN(V2) to do the alignment in a coarse-to-fine manner way with pyramidal processing and cascading refinement
+2. Temporal and Spatial Attention(TSP):Fusion with Temporal and Spatial Attention
+### Highlight
+1. DCN v2+ pyramidal processing and cascading refinement
+2. different neighboring frames are not equally informative due to occlusion, blurry regions and parallax problems;
+### Problem
+1. hard to train
+2. many bad case
+### Idea
+Combine the PCD and TSA into one stage?
+
+****
+<div id='tdan'></div>
+
+## TDAN: Temporally Deformable Alignment Network for Video Super-Resolution
+### Main idea 
+1. temporal deformable alignment network (TDAN) based on Deformable Convolution Network(V1)
+2. The TDAN uses features from both the reference frame and each supporting frame to dynamically predict offsets of sampling convolution kernels.
+
+### Highlight
+only Deformable Convolution Network (DCN V1),No optical flow
+### Problem
+worse than DUF model in many dataset
+### Idea
+1. DCN V2?
+
+
+****
+<div id='VRT'></div>
+
+## VRT: A Video Restoration Transformer
+### Main idea
+- Temporal mutual self attention
+- Parallel Warping (optical flow)
+### Problem
+1. parameters too much, but only a little improvement
+### Idea
+1. Whether attention is useful to deal with large motion.
+2. Combine two alignment methods. Attention and optical flow in this paper.
