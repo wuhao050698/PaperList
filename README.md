@@ -5,8 +5,10 @@
 |-|-|
 |NeurIPS2022| 2022/05/16 01:00 PM PDT|
 |AAAI2023 | 2022/09(TBD)|
+## Note
+- **[Image/Video super resolution](VSR/note.md)**
 
-## link
+## Summary
 - [Image/Video super resolution](VSR/paper.md)
 - [Video understanding](VU/paper.md)
 - [Knowledge transfer](KT/paper.md)
@@ -45,7 +47,11 @@
 
 ****
 ### Plan
+- Zoom To Learn, Learn To Zoom,CVPR,2019
+- Blind Super-Resolution With Iterative Kernel Correction,CVPR,2019
 - Student Customized Knowledge Distillation: Bridging the Gap Between Student and Teacher,ICCV,2021.
 - Self-Knowledge Distillation with Progressive Refinement of Targets,ICCV,2021.
 - SimPLE: Similar Pseudo Label Exploitation for Semi-Supervised Classification,CVPR,2021.
 - An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+
+
