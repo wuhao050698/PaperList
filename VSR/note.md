@@ -76,7 +76,7 @@ BasicVSR++|2021|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
     - As auxiliary information(Better)
       - BasicVSR++,[VRT](paper.md#VRT) 
     - Replaced by deep models
-      - [DUF](paper.md#duf),[TDAN](paper.md#tdan),[EDVR](paper.md#edvr)
+      - [DUF](paper.md#duf),[TDAN](paper.md#tdan-temporally-deformable-alignment-network-for-video-super-resolution),[EDVR](paper.md#edvr)
 
 
 
