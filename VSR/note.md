@@ -59,7 +59,9 @@ BasicVSR++|2021|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
   - **Two constraints**: 
     - 1. Brightness constancy constraint 
     - 2. Only small movement
+  
   <img src="image/n3.jpg" width="80%" />
+
   - **Solution**:
     - Deep learning model
       - has no constraints
