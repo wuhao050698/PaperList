@@ -13,7 +13,7 @@ BasicVSR|Optical flow|Bi-RNN|6.3|63|31.42|
 BasicVSR++|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
 VRT|Optical flow + Self-attention|Shifted window|35.6|243|32.19|
 
-(ref:experiment result for [VRT](paper.md#VRT:+A+Video+Restoration+Transformer))
+(ref:experiment result for [VRT](paper.md#VRT))
 
 ## Outline
 <img src="image/n1.jpg" width="100%" />
