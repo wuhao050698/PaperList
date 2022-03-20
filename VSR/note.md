@@ -30,7 +30,7 @@ BasicVSR++|2021|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
     - [propagation](#propagation)
       - [1. Sliding window](#1-sliding-window)
       - [2. RNN](#2-rnn)
-      - [3. Shifted window](#3-shifted-window)
+      - [3. Shifted window (VRT)](#3-shifted-window-vrt)
   - [Challenge and Solution](#challenge-and-solution)
     - [Reliable Metric](#reliable-metric)
     - [Data-free](#data-free)
@@ -76,25 +76,92 @@ BasicVSR++|2021|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
     - As auxiliary information(Better)
       - BasicVSR++,[VRT](paper.md#VRT) 
     - Replaced by deep models
-      - [DUF](paper.md#duf),[TDAN](paper.md#tdan-temporally-deformable-alignment-network-for-video-super-resolution),[EDVR](paper.md#edvr)
+      - [DUF](paper.md#duf),[TDAN](paper.md#tdan),[EDVR](paper.md#edvr)
 
 
 
 #### 2. Dynamic Upsampling Filters
+  - [Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation](paper.md#deep-video-super-resolution-network-using-dynamic-upsampling-filters-without-explicit-motion-compensation)
 #### 3. Deformable Convolution Network
+  - **Problem**:Training instability
+  - **Soultion**:
+    - Pyramid [(EDVR)](paper.md#edvr)
+    - Add other information to guide(optical flow) (BasicVSR++)
 #### 4. Self-attention
+  - Temporal mutual self attention (Multi-scale in feature extraction) [(VRT)](paper.md#VRT)
+    - **Advantages:** can deal with large motions ()
+    - **Problem:** Heavy Computational load and heavy model
 
 ### propagation
 #### 1. Sliding window
+- Most commonly used in the past paper.
+- **Problem**: 
+  - Only adjacent frames’ information
+  - Can’t learn Long-term motion patterns
+
 #### 2. RNN
-#### 3. Shifted window
+- **Problem**: (BasicVSR,BasicVSR++)
+  - Recurrent models are not good at long-range temporal dependency modelling
+  - Limit in distributed training
+<img src="image/n5.jpg">
+
+#### 3. Shifted window ([VRT](paper.md/#VRT))
+- **Aim**: Solve the problem in RNN
+- **Problem**: 
+  - Computational load increase and model becomes heavy.
+  - Limit by the computation, the model can only stack several layers.
+<img src="image/n4.jpg">
+
 
 ****
 
 ## Challenge and Solution
 ### Reliable Metric
+- ref: The Unreasonable Effectiveness of Deep Features as a Perceptual Metric,2018 CVPR.
+- **Problem**: 
+  - PSNR,SSIM does not correspond well to human perception about image
+  - Cannot evaluate the model gap well. 
+- **Solution**:
+  - Focus on Perceptual Similarity (LPIPS in CVPR 2018)
+  - New metric: Consider Perceptual Similarity, motion in adjacent frames…
+<img src="image/n6.jpg">
+
 ### Data-free
+- Self-supervised learning
+  - Learn SR from far to close in image
+
+- Unsupervised learning
+  - Learn SR from other datasets
+
 ### Degradation in real-world
+- Traditional Downscaling methods:  Bicubic-down, Blur-down 
+  - Problem: Unknown Degradation in real-world 
+- **Solution**:
+  - Simulate diverse degradations
+    - More complex method to do downscaling: temporally-varying degradations/Stochastic degradation 
+      - ref: Investigating Tradeoffs in Real-World Video Super-Resolution,2022 CVPR.
+    - New degradation methods(?)
+
+  - Learn the degradation kernel in target data
+  - In image super-resolution: (ref: Unsupervised Real-World Super-Resolution: A Domain Adaptation Perspective,2021 ICCV.)
+    - Degradation-indistinguishable feature
+    - Degradation style feature
+  - **Video SR:**
+    - Degradation-indistinguishable feature
+    - Degradation style feature
+      - static degradation (Invariant between frames)
+      - dynamic degradation (Variant)
+
 ### Fix scaling (4x)
+- Any scale (Upsampling 4X only now)
+
 ### Large motion
+- Whether attention can solve this problem?
+- U-shaped residual dense network with 3D convolution
+  - Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling, 2021 AAAI
+
 ### Prior
+- Deblurring
+- Denoise
+- Cleaning module (stack of residual blocks)
+  - Investigating Tradeoffs in Real-World Video Super-Resolution, 2022 CVPR.
