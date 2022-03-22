@@ -5,29 +5,51 @@
 ## Paper Summary
 paper|year|conference|keyword|link
 -|-|-|-|-
+[Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling](#large-motion-video-super-resolution-with-dual-subnet-and-multi-stage-communicated-upsampling)|2021|AAAI|Large Motion|[paper](https://arxiv.org/pdf/2103.11744.pdf)
 [Image Super-Resolution with Non-Local Sparse Attention](#image-super-resolution-with-non-local-sparse-attention)|2021|CVPR||[paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Mei_Image_Super-Resolution_With_Non-Local_Sparse_Attention_CVPR_2021_paper.pdf)|
 [Data-Free Knowledge Distillation For Image Super-Resolution](#data-free-knowledge-distillation-for-image-super-resolution)|2021|CVPR|data-free model compression,ISR|[paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Zhang_Data-Free_Knowledge_Distillation_for_Image_Super-Resolution_CVPR_2021_paper.pdf)  [code](https://github.com/twtygqyy/pytorch-vdsr)
 [Unsupervised Real-World Super-Resolution: A Domain Adaptation Perspective](#unsupervised-real-world-super-resolution-a-domain-adaptation-perspective)|2021|ICCV|unsupervised domain adaptation,degradation-indistinguishable feature,ISR|[paper](https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_Unsupervised_Real-World_Super-Resolution_A_Domain_Adaptation_Perspective_ICCV_2021_paper.pdf)  [code](https://github.com/anse3832/USR_DA)
 [Investigating Tradeoffs in Real-World Video Super-Resolution](#investigating-tradeoffs-in-real-world-video-super-resolution)|2022|CVPR|real-world SR,pre-cleaning|[paper](https://arxiv.org/pdf/2111.12704.pdf)  [code](https://github.com/ckkelvinchan/RealBasicVSR)
-[Zero-Shot Image Super-Resolution with Depth Guided Internal Degradation Learning](#zero-shot-image-super-resolution-with-depth-guided-internal-degradation-learning)|2020|ECCV||[paper](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620256.pdf)
-|BasicVSR++: Improving Video Super-Resolution with Enhanced Propagation and Alignment|2021|NTIRE||[paper](https://arxiv.org/pdf/2104.13371.pdf)|
+[Zero-Shot Image Super-Resolution with Depth Guided Internal Degradation Learning](#zero-shot-image-super-resolution-with-depth-guided-internal-degradation-learning)|2020|ECCV|zero-shot,internal learning|[paper](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620256.pdf)
+|[BasicVSR++: Improving Video Super-Resolution with Enhanced Propagation and Alignment](#basicvsr-improving-video-super-resolution-with-enhanced-propagation-and-alignment)|2021|NTIRE|DCN guided by optical flow|[paper](https://arxiv.org/pdf/2104.13371.pdf)|
 [VRT: A Video Restoration Transformer](#vrt-a-video-restoration-transformer)|2022|Arxiv|Temporal mutual self attention|[paper](https://arxiv.org/abs/2201.12288)
-BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond|2021|CVPR|VSR,Bi-RNN,optical flow|[paper](https://arxiv.org/abs/2012.02181)
-Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling|2021|AAAI|Large Motion|[paper](https://arxiv.org/pdf/2103.11744.pdf)
+[BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond](#basicvsr-the-search-for-essential-components-in-video-super-resolution-and-beyond)|2021|CVPR|VSR,Bi-RNN,optical flow|[paper](https://arxiv.org/abs/2012.02181)
 [Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation](#deep-video-super-resolution-network-using-dynamic-upsampling-filters-without-explicit-motion-compensation)|2018|CVPR|Dynamic filter network, No optical flow
 [TDAN: Temporally Deformable Alignment Network for Video Super-Resolution](#tdan-temporally-deformable-alignment-network-for-video-super-resolution)|2018|CVPR|DCN(V1)|[paper](https://arxiv.org/abs/1812.02898)
 [EDVR: Video Restoration With Enhanced Deformable Convolutional Networks](#edvr-video-restoration-with-enhanced-deformable-convolutional-networks)|2019|CVPR|optical flow, DCN(V2)|[paper](https://arxiv.org/abs/1905.02716)
 
 ****
-## Image Super-Resolution with Non-Local Sparse Attention
+## Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling
 
 ### Main idea:
-
+**Background:** When the video contains large motion, conventional methods easily bring incoherent results or artifacts.
+**Method:** 
 ### Highlight:
 
 ### Idea:
 
-   
+****
+## BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond
+### Main idea:
+- Bi-RNN
+- optical flow and feature do the spatial warping
+### Highlight:
+- use the optical flow in the feature level
+- They only use the optical flow to do the alignment, but their performance is similar to the SOTA and their parameters is small enough.
+### Problem:
+1. why only optical flow can get good performance?
+### Idea:
+It is a good baseline, because of its low parameters and simple structure.
+**** 
+## BasicVSR++: Improving Video Super-Resolution with Enhanced Propagation and Alignment
+### Main idea:
+- second-order grid propagation
+- flow-guided deformable alignment 
+### Highlight:
+- Use optical flow to guide DCN
+
+### Problem:
+How they design the value of DCN(V2)
 ****
 ## Zero-Shot Image Super-Resolution with Depth Guided Internal Degradation Learning
 ### Main idea

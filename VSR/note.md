@@ -37,6 +37,8 @@ BasicVSR++|2021|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
     - [Degradation in real-world](#degradation-in-real-world)
     - [Fix scaling (4x)](#fix-scaling-4x)
     - [Large motion](#large-motion)
+      - [Problem](#problem)
+      - [Solution](#solution)
     - [Prior](#prior)
 
 
@@ -156,12 +158,17 @@ BasicVSR++|2021|Optical flow + DCN|Second-order grid propagation|7.3|77|32.39|
 - Any scale (Upsampling 4X only now)
 
 ### Large motion
+#### Problem
+- conventional methods easily bring incoherent results or artifacts. 
+- optical flow estimation is only accurate in scenes with small motion. 
+  - (ref: Image Super-Resolution with Non-Local Sparse Attention)
+#### Solution
 - Whether attention can solve this problem?
 - U-shaped residual dense network with 3D convolution
-  - Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling, 2021 AAAI
+  - (ref: Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling, 2021 AAAI)
 
 ### Prior
 - Deblurring
 - Denoise
 - Cleaning module (stack of residual blocks)
-  - Investigating Tradeoffs in Real-World Video Super-Resolution, 2022 CVPR.
+  - (ref: Investigating Tradeoffs in Real-World Video Super-Resolution, 2022 CVPR.)
