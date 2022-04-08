@@ -18,6 +18,8 @@
 
 ## Paper list
 ### [Image/Video super resolution](VSR/paper.md)
+- Deep Blind Video Super-resolution,ICCV 2021.
+- Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling,AAAI 2021.
 - Image Super-Resolution with Non-Local Sparse Attention,CVPR 2021.
 - Zero-Shot Image Super-Resolution with Depth Guided Internal Degradation Learning, ECCV 2020.
 - Data-Free Knowledge Distillation For Image Super-Resolution,CVPR 2021.
@@ -35,6 +37,20 @@
 
 ### [Deep HDR imaging](HDR/paper.md)
 - Attention-guided Network for Ghost-free High Dynamic Range Imaging, CVPR, 2019.
+### Video deblurring
+- Cascaded deep video deblurring using temporal sharpness prior, CVPR 2020.
+- ARVo: Learning All-Range Volumetric Correspondence for Video Deblurring, CVPR 2021.
+- Bringing Events Into Video Deblurring With Non-Consecutively Blurry Frames, CVPR 2021.
+
+### Video Semantic Segmentation
+- Unsupervised Domain Adaptation for Video Semantic Segmentation, arXiv 2021.
+- Temporal Attentive Alignment for Large-Scale Video Domain Adaptation, ICCV 2019.
+- Temporal Memory Attention for Video Semantic Segmentation, ICIP 2021.
+
+### Video depth estimation 
+- S3Net: Semantic-Aware Self-supervised Depth Estimation with Monocular Videos and Synthetic Data, ECCV 2020.
+- Self-Supervised Monocular Depth Estimation: Solving the Dynamic Object Problem by Semantic Guidance, ECCV 2020
+
 
 ### [Video understanding](VU/paper.md)
 #### Action Recognition/Detection

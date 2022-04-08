@@ -29,6 +29,8 @@ paper|year|conference|keyword|link
 ### Idea:
 
 ****
+<div id='basicvsr'></div>
+
 ## BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond
 ### Main idea:
 - Bi-RNN
@@ -152,17 +154,6 @@ How they design the value of DCN(V2)
 ### Idea
 1. In Data-Free Knowledge Distillation about VSR, we can also use the similar idea like the reconstruction loss in this paper. The inputs and outputs should be in similar distribution in the teacher model. But how to deal with the heavy model in VSR is a problem.
    
-****
-<div id='basicvsr'></div>
-
-## BasicVSR: The Search for Essential Components in Video Super-Resolution and Beyond
-### Main idea
-1. Bi-RNN
-2. optical flow and feature do the spatial warping
-
-### Highlight
-use the optical flow in the feature level
-
 ****
 <div id='duf'></div>
 
