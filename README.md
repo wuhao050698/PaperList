@@ -3,8 +3,7 @@
 ## Conference Time:
 |conference|Submission deadline
 |-|-|
-|NeurIPS2022| 2022/05/16 01:00 PM PDT|
-|AAAI2023 | 2022/09(TBD)|
+|AAAI2023 | 2022/08/08|
 |CVPR2023| 2022/11(TBD) |
 ## Note
 - **[Image/Video super resolution](VSR/note.md)**
