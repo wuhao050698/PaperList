@@ -16,6 +16,14 @@
 - Image restoration and enhancement
 
 ## Paper list
+### Multi-modal
+- Visual Prompt Tuning, [2022](https://arxiv.org/pdf/2203.12119.pdf).
+- The Abduction of Sherlock Holmes:A Dataset for Visual Abductive Reasoning, [2022](https://arxiv.org/pdf/2202.04800.pdf).
+
+### Tracking
+- ByteTrack: Multi-Object Tracking by Associating Every Detection Box, [ECCV 2022](https://arxiv.org/pdf/2110.06864.pdf).
+- 
+
 ### [Image/Video super resolution](VSR/paper.md)
 - Deep Blind Video Super-resolution,ICCV 2021.
 - Large Motion Video Super-Resolution with Dual Subnet and Multi-Stage Communicated Upsampling,AAAI 2021.
